@@ -3,9 +3,13 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''pwd
-./mvnw package
-java -jar target/*.jar'''
+        sh 'export JAVA_HOME="/usr/lib/jvm/java-1.17.0-openjdk-amd64";./mvnw package'
+      }
+    }
+
+    stage('Run') {
+      steps {
+        sh 'java -jar target/*.jar'
       }
     }
 
