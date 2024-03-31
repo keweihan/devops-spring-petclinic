@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''./mvnw package
+        sh '''pwd
+./mvnw package
 java -jar target/*.jar'''
       }
     }
