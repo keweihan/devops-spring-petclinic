@@ -12,7 +12,7 @@ pipeline {
       steps {
           script {
               withSonarQubeEnv('SonarQube Server') {
-                  sh "<path_to_sonarqube_scanner>/bin/sonar-scanner"
+                  sh "/opt/sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner"
               }
           }
       }
