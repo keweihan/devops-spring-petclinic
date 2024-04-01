@@ -9,7 +9,8 @@ pipeline {
 
     stage('SonarQube analysis') {
       steps {
-        sh 'git clone https://github.com/keweihan/devops-spring-petclinic.git'
+        sh '''rm -rf devops-spring-petclinic
+git clone https://github.com/keweihan/devops-spring-petclinic.git'''
         script {
           withSonarQubeEnv('SonarQube Server') {
             sh "/opt/sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -D sonar.projectKey=devops-spring-petclinic -D sonar.java.binaries=./"
