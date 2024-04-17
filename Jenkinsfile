@@ -4,13 +4,14 @@ pipeline {
     stage('Build') {
       steps {
         sh 'export JAVA_HOME="/usr/lib/jvm/java-1.17.0-openjdk-amd64";./mvnw package'
+        sh '''
+rm -rf /home/vagrant/pet_builds  && mkdir /home/vagrant/pet_builds && cp target/*.jar /home/vagrant/pet_builds'''
       }
     }
 
-    stage('Run') {
+    stage('Ansible') {
       steps {
-        sh '''
-rm -rf /home/vagrant/pet_builds  && mkdir /home/vagrant/pet_builds && cp target/*.jar /home/vagrant/pet_builds'''
+        ansiblePlaybook '/vagrant/playbook.yaml'
       }
     }
 
