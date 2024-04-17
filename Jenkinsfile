@@ -10,7 +10,7 @@ pipeline {
     stage('Run') {
       steps {
         sh '''
-rm -rf /home/vagrant/pet_builds  && cp target/*.jar /home/vagrant/pet_builds'''
+rm -rf /home/vagrant/pet_builds  && mkdir /home/vagrant/pet_builds && cp target/*.jar /home/vagrant/pet_builds'''
       }
     }
 
