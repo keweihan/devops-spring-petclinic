@@ -16,7 +16,7 @@ rm -rf /home/vagrant/pet_builds  && mkdir /home/vagrant/pet_builds && cp target/
         PRIVATE_KEY = '/home/vagrant/.ssh/id_rsa'
       }
       steps {
-        sh 'ansible-playbook -i $INVENTORY $PLAYBOOK --private-key $PRIVATE_KEY'
+        ansiblePlaybook(disableHostKeyChecking: true, playbook: '/vagrant/playbook.yaml', inventory: '/vagrant/inventory.ini', credentialsId: '$PRIVATE_KEY')
       }
     }
 
