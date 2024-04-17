@@ -9,7 +9,8 @@ pipeline {
 
     stage('Run') {
       steps {
-        sh 'nohup java -jar target/*.jar'
+        sh '''
+rm -rf ~/pet_builds  && cp target/*.jar ~/pet_builds'''
       }
     }
 
