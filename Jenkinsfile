@@ -11,7 +11,7 @@ rm -rf /home/vagrant/pet_builds  && mkdir /home/vagrant/pet_builds && cp target/
 
     stage('Ansible') {
       steps {
-        ansiblePlaybook '/vagrant/playbook.yaml'
+        ansiblePlaybook(playbook: '/vagrant/playbook.yaml', inventory: '/vagrant/inventory.ini')
       }
     }
 
